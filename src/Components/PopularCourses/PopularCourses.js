@@ -65,7 +65,7 @@ export default function PopularCourses() {
         sx={{ fontWeight: 'bold' }}
         data-aos="fade-up"
         data-aos-delay="100">
-        Popular <span style={{ color: '#FF6600' }}>Courses</span>
+        Popular <span style={{ color: '#F98149' }}>Courses</span>
       </Typography>
       <Grid container spacing={3} sx={{ marginTop: 3 }}>
         {courses.map((course, index) => (

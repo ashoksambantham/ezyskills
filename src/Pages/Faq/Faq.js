@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   Typography,
@@ -11,119 +11,115 @@ import {
   TextField,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import HeaderOrange from '../../Components/Header/headerOrange';
+import Footer from '../../Components/Footer/footer';
 const FAQ = () => {
+  const faqData = [
+    {
+      question: 'Who is eligible for this program?',
+      answer:
+        'Any Degree/Btech/BE/MTech final year, Passed outs, Individuals, Employees are eligible for this program.',
+    },
+    {
+      question: 'What is the duration of the program?',
+      answer: 'The duration of the program is typically 6 months.',
+    },
+    {
+      question: 'Do I get the assured placement?',
+      answer: 'Yes, we provide assured placement for all eligible candidates.',
+    },
+    {
+      question: 'What is the basic academic percentage required to enroll for the course?',
+      answer: 'You need a minimum of 50% in your academic records to enroll.',
+    },
+    {
+      question: 'What is the execution plan of the program?',
+      answer: 'The execution plan includes lectures, hands-on projects, and assessments.',
+    },
+    {
+      question: 'Can we take this course online?',
+      answer: 'Yes, the course can be taken online through our learning portal.',
+    },
+    {
+      question: 'I am already employed, will I be eligible for the program?',
+      answer: 'Yes, employed individuals are eligible to apply.',
+    },
+    {
+      question: 'What if I miss the session due to an emergency?',
+      answer: 'We offer recorded sessions for missed classes.',
+    },
+    {
+      question: 'Do you provide any certificate after the program?',
+      answer: 'Yes, participants will receive a certificate upon completion.',
+    },
+    {
+      question: 'Have suggestions for us?',
+      answer: 'We welcome your feedback and suggestions for program improvements.',
+    },
+  ];
+
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   return (
-    <Container maxWidth="lg">
-      {/* FAQ Header */}
-      <Box sx={{ textAlign: 'center', py: 5 }}>
-        <Typography variant="h3" sx={{ fontWeight: 'bold', color: '#ff6f00' }}>
-          Frequently Asked Questions
-        </Typography>
-      </Box>
+    <>
+      <HeaderOrange />
 
+      <Box sx={{ backgroundColor: '#F98149' }}>
+        <Container maxWidth="lg">
+          {/* FAQ Header */}
+          <Box sx={{ textAlign: 'center', py: 5 }}>
+            <Typography variant="h3" sx={{ fontWeight: 'bold', color: '#fff' }}>
+              Frequently Asked Questions
+            </Typography>
+          </Box>
+        </Container>
+      </Box>
       {/* FAQ List */}
-      <Box sx={{ mb: 10 }}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            sx={{ backgroundColor: '#ff6f00', color: 'white' }}>
-            <Typography sx={{ fontWeight: 'bold' }}>Who is eligible for this program?</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Any Degree/BTech/BE/MTech final year, Passed outs, Individuals, Employees are eligible
-              for this program.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>What is the duration of the program?</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              The duration depends on the course chosen, typically ranging from 3 to 6 months.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Do I get the assured placement?</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Yes, assured placements are offered depending on your performance and completion of
-              the program.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-
-        {/* Add more FAQs as needed */}
+      <Box
+        sx={{
+          mb: 10,
+          backgroundColor: '#F98149',
+          py: 5,
+        }}>
+        <Container maxWidth="lg" sx={{}}>
+          <Box
+            sx={{
+              padding: { md: '80px 40px', xs: '80px 0px' },
+              backgroundColor: '#fff',
+              borderRadius: '30px',
+            }}>
+            {faqData.map((faq, index) => (
+              <Accordion
+                sx={{ padding: '10px 0' }}
+                key={index}
+                expanded={expanded === `panel${index}`}
+                onChange={handleChange(`panel${index}`)}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon sx={{ color: '#F98149' }} />}
+                  aria-controls={`panel${index}d-content`}
+                  id={`panel${index}d-header`}>
+                  <Typography
+                    sx={{ color: expanded === `panel${index}` ? '#F98149' : '#000000' }}
+                    fontWeight="bold"
+                    fontSize="24">
+                    {faq.question}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>{faq.answer}</Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </Box>
+        </Container>
       </Box>
 
-      {/* Footer Section */}
-      <Box sx={{ backgroundColor: '#004165', color: 'white', py: 5 }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-              About Us
-            </Typography>
-            <Typography variant="body2" sx={{ mt: 2 }}>
-              Let us build your career together. Be the first person to transform yourself with our
-              unique & world-class corporate level training.
-            </Typography>
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-              Quick Links
-            </Typography>
-            <Box sx={{ mt: 2 }}>
-              <Typography variant="body2">Home</Typography>
-              <Typography variant="body2">Our Story</Typography>
-              <Typography variant="body2">Best Courses</Typography>
-              <Typography variant="body2">FAQs</Typography>
-              <Typography variant="body2">Cancellation & Refunds</Typography>
-              <Typography variant="body2">Contact Us</Typography>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-              Contact Us
-            </Typography>
-            <Typography variant="body2" sx={{ mt: 2 }}>
-              Navakeethan Complex
-            </Typography>
-            <Typography variant="body2">6th Floor, 605, 606 A&P opp.</Typography>
-            <Typography variant="body2">Secunderabad, Telangana 500003</Typography>
-            <Typography variant="body2">info@ezyskills.in</Typography>
-            <Typography variant="body2">+91 8428484903</Typography>
-            <Typography variant="body2">+91 9475848959</Typography>
-          </Grid>
-        </Grid>
-      </Box>
-
-      {/* Subscribe Section */}
-      <Box sx={{ backgroundColor: '#ff6f00', py: 4, textAlign: 'center' }}>
-        <Typography variant="h6" sx={{ color: 'white', mb: 2 }}>
-          Subscribe to Our Newsletter
-        </Typography>
-        <Box display="flex" justifyContent="center">
-          <TextField
-            placeholder="Your Email Address"
-            variant="outlined"
-            sx={{ backgroundColor: 'white', borderRadius: '4px' }}
-          />
-          <Button variant="contained" sx={{ backgroundColor: '#004165', ml: 2 }}>
-            Subscribe
-          </Button>
-        </Box>
-      </Box>
-    </Container>
+      <Box sx={{ my: 8 }} />
+      <Footer />
+    </>
   );
 };
 

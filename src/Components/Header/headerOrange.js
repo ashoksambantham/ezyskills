@@ -16,7 +16,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Logo from '../../assets/img/Logo.png';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
 import { Link, useLocation } from 'react-router-dom';
-const Header = () => {
+const HeaderOrange = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [loginMenuAnchor, setLoginMenuAnchor] = useState(null);
   const [isSignUpDialogopen, setSignUpDialogopen] = useState(false);
@@ -55,13 +55,13 @@ const Header = () => {
   };
 
   return (
-    <>
+    <Box sx={{ backgroundColor: '#F98149' }}>
       <Container>
         <AppBar
           position="static"
           sx={{
-            backgroundColor: '#fff',
             padding: '1rem 0rem',
+            backgroundColor: '#F98149',
             boxShadow: 'none',
           }}>
           <Toolbar disableGutters={true} sx={{ padding: 0 }}>
@@ -91,7 +91,7 @@ const Header = () => {
                   to={item.path}
                   key={index}
                   sx={{
-                    color: location.pathname === item.path ? '#F98149' : '#8A948C', // Active link in drawer
+                    color: location.pathname === item.path ? '#003F7D' : '#FFFFFF', // Active link in drawer
                     margin: { md: '0', lg: '0 8px' },
                     textTransform: 'capitalize',
                     fontWeight: 500,
@@ -108,11 +108,11 @@ const Header = () => {
                 component={Link}
                 to={'/login'}
                 sx={{
-                  color: '#F98149',
+                  color: '#FFFFFF',
                   margin: { md: '0', lg: '0 16px' },
                   textTransform: 'capitalize',
                   fontSize: '14px',
-                  border: '2px solid #F98149',
+                  border: '2px solid #FFFFFF',
                   borderRadius: '8px',
                   padding: { md: '4px 10px', lg: '8px 30px' },
                 }}>
@@ -124,8 +124,8 @@ const Header = () => {
             <Button
               variant="contained"
               sx={{
-                backgroundColor: '#F98149',
-                color: '#fff',
+                backgroundColor: '#FFFFFF',
+                color: '#2E343D',
                 display: { xs: 'none', md: 'block' },
                 marginLeft: { lg: 2, md: 1 },
                 padding: { md: '4px 10px', lg: '8px 30px' },
@@ -227,8 +227,8 @@ const Header = () => {
           </Toolbar>
         </AppBar>
       </Container>
-    </>
+    </Box>
   );
 };
 
-export default Header;
+export default HeaderOrange;
