@@ -16,14 +16,12 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Logo from '../../assets/img/Logo.png';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
 import { Link, useLocation } from 'react-router-dom';
+import LoginDialog from '../Dialogs/LoginDialog';
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [loginMenuAnchor, setLoginMenuAnchor] = useState(null);
-  const [isSignUpDialogopen, setSignUpDialogopen] = useState(false);
+  const [isLoginDialogopen, setLoginDialogopen] = useState(false);
   const location = useLocation();
-  const handleClose = () => {
-    setSignUpDialogopen(false);
-  };
+
   // const menuItems = ['Home', 'Course Selector', 'Courses', 'Pricing', 'FAQ ', 'Contact US'];
   const menuItems = [
     { label: 'Home', path: '/' },
@@ -38,20 +36,6 @@ const Header = () => {
       return;
     }
     setDrawerOpen(open);
-  };
-
-  const handleLoginMenuClick = (event) => {
-    console.log('Fired');
-    // setLoginMenuAnchor(event.currentTarget);
-    setSignUpDialogopen(true);
-  };
-
-  const handleSignUpClick = (e) => {
-    console.log('Singupe');
-    setSignUpDialogopen(true);
-  };
-  const handleLoginMenuClose = () => {
-    setLoginMenuAnchor(null);
   };
 
   return (
@@ -105,8 +89,9 @@ const Header = () => {
               <Button
                 aria-controls="login-menu"
                 aria-haspopup="true"
-                component={Link}
-                to={'/login'}
+                onClick={() => {
+                  setLoginDialogopen(true);
+                }}
                 sx={{
                   color: '#F98149',
                   margin: { md: '0', lg: '0 16px' },
@@ -188,8 +173,9 @@ const Header = () => {
                     <Button
                       aria-controls="login-menu"
                       aria-haspopup="true"
-                      component={Link}
-                      to={'/login'}
+                      onClick={() => {
+                        setLoginDialogopen(true);
+                      }}
                       sx={{
                         color: '#F98149',
                         textTransform: 'capitalize',
@@ -227,6 +213,14 @@ const Header = () => {
           </Toolbar>
         </AppBar>
       </Container>
+      {isLoginDialogopen && (
+        <LoginDialog
+          open={isLoginDialogopen}
+          setOpen={() => {
+            setLoginDialogopen(false);
+          }}
+        />
+      )}
     </>
   );
 };

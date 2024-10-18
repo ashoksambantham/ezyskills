@@ -16,8 +16,10 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Logo from '../../assets/img/Logo.png';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
 import { Link, useLocation } from 'react-router-dom';
+import LoginDialog from '../Dialogs/LoginDialog';
 const HeaderBlue = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isLoginDialogopen, setLoginDialogopen] = useState(false);
   const [loginMenuAnchor, setLoginMenuAnchor] = useState(null);
   const [isSignUpDialogopen, setSignUpDialogopen] = useState(false);
   const location = useLocation();
@@ -105,8 +107,9 @@ const HeaderBlue = () => {
               <Button
                 aria-controls="login-menu"
                 aria-haspopup="true"
-                component={Link}
-                to={'/login'}
+                onClick={() => {
+                  setLoginDialogopen(true);
+                }}
                 sx={{
                   color: '#FFFFFF',
                   margin: { md: '0', lg: '0 16px' },
@@ -188,8 +191,9 @@ const HeaderBlue = () => {
                     <Button
                       aria-controls="login-menu"
                       aria-haspopup="true"
-                      component={Link}
-                      to={'/login'}
+                      onClick={() => {
+                        setLoginDialogopen(true);
+                      }}
                       sx={{
                         color: '#F98149',
                         textTransform: 'capitalize',
@@ -227,6 +231,14 @@ const HeaderBlue = () => {
           </Toolbar>
         </AppBar>
       </Container>
+      {isLoginDialogopen && (
+        <LoginDialog
+          open={isLoginDialogopen}
+          setOpen={() => {
+            setLoginDialogopen(false);
+          }}
+        />
+      )}
     </Box>
   );
 };

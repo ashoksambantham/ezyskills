@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -21,7 +21,9 @@ import GoogleIcon from '../../assets/img/Google.png';
 import FaceBookIcon from '../../assets/img/FaceBook.png';
 import AppleIcon from '../../assets/img/Apple.png';
 import Footer from '../../Components/Footer/footer';
+import LoginDialog from '../../Components/Dialogs/LoginDialog';
 const CreateAccount = () => {
+  const [isLoginDialogopen, setLoginDialogopen] = useState(false);
   return (
     <>
       <Header />
@@ -183,7 +185,13 @@ const CreateAccount = () => {
               </Button>
               <Typography variant="body2" align="center" sx={{ mt: 1, color: '#B1B1B1' }}>
                 Already Created?{' '}
-                <Button sx={{ color: '#FF8B36', textTransform: 'capitalize' }}>Login Here</Button>
+                <Button
+                  onClick={() => {
+                    setLoginDialogopen(true);
+                  }}
+                  sx={{ color: '#FF8B36', textTransform: 'capitalize' }}>
+                  Login Here
+                </Button>
               </Typography>
 
               <Divider sx={{ my: 1 }}>or</Divider>
@@ -304,6 +312,14 @@ const CreateAccount = () => {
       <Box sx={{ my: 8 }} />
 
       <Footer />
+      {isLoginDialogopen && (
+        <LoginDialog
+          open={isLoginDialogopen}
+          setOpen={() => {
+            setLoginDialogopen(false);
+          }}
+        />
+      )}
     </>
   );
 };
