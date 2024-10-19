@@ -25,7 +25,7 @@ const Header = () => {
   // const menuItems = ['Home', 'Course Selector', 'Courses', 'Pricing', 'FAQ ', 'Contact US'];
   const menuItems = [
     { label: 'Home', path: '/' },
-    { label: 'Course Selector', path: '/course-selector' },
+    // { label: 'Course Selector', path: '/course-selector' },
     { label: 'Courses', path: '/courses' },
     { label: 'About Us', path: '/about' },
     { label: 'FAQ', path: '/faq' },
