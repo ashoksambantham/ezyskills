@@ -22,17 +22,17 @@ const App = () => {
     });
   }, []);
   return (
-    <BrowserRouter basename="/ezyskills">
+    <BrowserRouter basename='/ezyskills'>
       <ThemeProvider theme={theme}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Aboutus />} />
-          <Route path="/singup" element={<CreateAccount />} />
-          <Route path="/courseselector" element={<CourseSelector />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/courses" element={<Course />} />
-          <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/contactus" element={<ContactUs />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<Aboutus />} />
+          <Route path='/singup' element={<CreateAccount />} />
+          <Route path='/courseselector' element={<CourseSelector />} />
+          <Route path='/faq' element={<FAQ />} />
+          <Route path='/courses' element={<Course />} />
+          <Route path='/aboutus' element={<Aboutus />} />
+          <Route path='/contactus' element={<ContactUs />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
