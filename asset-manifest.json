@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ezyskills/static/css/main.406b84af.css",
-    "main.js": "/ezyskills/static/js/main.c6282037.js",
+    "main.js": "/ezyskills/static/js/main.5bbf799f.js",
     "static/js/453.e8db279b.chunk.js": "/ezyskills/static/js/453.e8db279b.chunk.js",
     "static/media/About2.jpg": "/ezyskills/static/media/About2.dd70d62836b8eb3b0043.jpg",
     "static/media/slide3.png": "/ezyskills/static/media/slide3.71e3bf666d6e9a93f994.png",
@@ -98,11 +98,11 @@
     "static/media/roboto-greek-ext-400-normal.woff": "/ezyskills/static/media/roboto-greek-ext-400-normal.16eb83b4a3b1ea994243.woff",
     "index.html": "/ezyskills/index.html",
     "main.406b84af.css.map": "/ezyskills/static/css/main.406b84af.css.map",
-    "main.c6282037.js.map": "/ezyskills/static/js/main.c6282037.js.map",
+    "main.5bbf799f.js.map": "/ezyskills/static/js/main.5bbf799f.js.map",
     "453.e8db279b.chunk.js.map": "/ezyskills/static/js/453.e8db279b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.406b84af.css",
-    "static/js/main.c6282037.js"
+    "static/js/main.5bbf799f.js"
   ]
 }
